@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Horizontally Scrolling Site from CSS-Tricks</title>
+	
+	<link rel="stylesheet" href="style.css">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="jquery.mousewheel.js"></script>
+	<script>
+	$(function(){
+		$("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+		$(".post").wrap("<td></td>");
+		$("body").mousewheel(function(event, delta) {
+			this.scrollLeft -= (delta * 30);
+			event.preventDefault();
+		});   
+	});
+	</script>
+</head>
+
+<body>
+	
+	<h1>Horizontally Scrolling Site</h1>
+
+	<div id="page-wrap">
+		
+		<div class="post">
+			<h2>Animation Segment 1</h2>
+<svg width="500" height="350">
+  <circle id="orange-circle" r="30" cx="50" cy="50" fill="orange" />
+  <rect id="blue-rectangle" width="50" height="50" x="425" y="200" fill="#0099cc"></rect>
+  
+  <animate 
+           xlink:href="#orange-circle"
+           attributeName="cx"
+           from="50"
+           to="450" 
+           dur="10s"
+           begin="0s"
+           fill="freeze" 
+           id="circ-anim"/>
+  
+<animate 
+    xlink:href="#blue-rectangle"
+    attributeName="x" 
+    from="425"
+    to="20" 
+    dur="5s"
+    begin="1s"
+    fill="freeze" 
+    id="rect-anim"/>
+  
+</svg>
+
+		</div>
+		
+		<div class="post">
+			<h2>Animation Segment 2</h2>
+			<svg width="500" height="350">
+  <circle id="orange-circle02" r="30" cx="50" cy="50" fill="orange" />
+  <rect id="blue-rectangle02" width="50" height="50" x="425" y="200" fill="#0099cc"></rect>
+
+  
+  <animate 
+           xlink:href="#orange-circle02"
+           attributeName="cx"
+           from="50"
+           to="450" 
+           dur="10s"
+           begin="3s"
+           fill="freeze" 
+           id="circ-anim"/>
+  
+<animate 
+    xlink:href="#blue-rectangle02"
+    attributeName="x" 
+    from="425"
+    to="20" 
+    dur="5s"
+    begin="5s"
+    fill="freeze" 
+    id="rect-anim"/>
+  
+</svg>
+		</div>
+	
+	</div>
+	
+</body>
+
+</html>
